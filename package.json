@@ -1,0 +1,36 @@
+{
+    "name": "@wonderlandengine/looking-glass",
+    "version": "1.0.0",
+    "description": "Wonderland Engine component for rendering to Looking Glass Holographic Displays.",
+    "author": "Wonderland GmbH",
+    "license": "MIT",
+    "type": "module",
+    "main": "looking-glass.js",
+    "module": "looking-glass.js",
+    "scripts": {},
+    "keywords": [
+        "wonderland-engine",
+        "webxr",
+        "looking-glass"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/WonderlandEngine/wonderland-looking-glass.git"
+    },
+    "bugs": {
+        "url": "https://github.com/WonderlandEngine/wonderland-looking-glass/issues"
+    },
+    "homepage": "https://github.com/WonderlandEngine/wonderland-looking-glass#readme",
+    "wonderlandengine": {},
+    "files": [
+        "*.js"
+    ],
+    "peerDependencies": {
+        "@wonderlandengine/api": "^1.0.0",
+        "@wonderlandengine/components": "^1.0.3"
+    },
+    "dependencies": {
+        "@lookingglass/webxr": "^0.4.0 || ^0.4.0-alpha.5",
+        "prettier": "^2.8.8"
+    }
+}

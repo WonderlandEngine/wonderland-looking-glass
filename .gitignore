@@ -1,0 +1,4 @@
+**/node_modules/
+**/deploy/
+**/.editor/
+**/imgui.ini
