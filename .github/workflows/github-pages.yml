@@ -1,0 +1,48 @@
+name: Build
+on: [push]
+
+jobs:
+    package:
+        runs-on: ubuntu-latest
+        container:
+            image: wonderlandengine/editor:edge
+        steps:
+            - uses: actions/checkout@v2
+            - name: Package
+              run: |
+                  # Build all node libraries
+                  npm i
+
+                  # Build all examples
+                  mkdir public
+                  cd example
+
+                  echo "Building $project"
+                  /usr/local/bin/entrypoint.sh WonderlandEditor --credentials "$WLE_CREDENTIALS" --windowless --package --project ./LookingGlass.wlp --output ../public/
+                  cd ..
+              env:
+                  WLE_CREDENTIALS: ${{ secrets.WLE_CREDENTIALS }}
+            - name: Gzip
+              run: gzip -k public/**/*.*
+            - name: Upload package artifact
+              uses: actions/upload-artifact@v2
+              with:
+                  name: wonderland-engine-examples-deploy
+                  path: public/
+    deploy-pages:
+        needs: package
+        if: github.ref == 'refs/heads/master'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v1
+            - name: Download package artifact
+              uses: actions/download-artifact@v2
+              with:
+                  name: wonderland-engine-examples-deploy
+                  path: public/
+            - name: Deploy to GitHub Pages
+              uses: JamesIves/github-pages-deploy-action@4.1.1
+              with:
+                  branch: gh-pages
+                  folder: public
