@@ -2,7 +2,7 @@
 
 Components for rendering to Looking Glass Holographic Displays.
 
-[Live Demo (Requires Looking Glass Display)](https://wonderlandengine.gitlab.io/wonderland-looking-glass)
+[Live Demo (Requires Looking Glass Display)](https://wonderlandengine.github.io/wonderland-looking-glass)
 
 ![Video of a the example running on the Looking Glass Portrait](https://github.com/WonderlandEngine/wonderland-looking-glass/blob/main/video/wonderland-engine-looking-glass.gif?raw=true)
 
